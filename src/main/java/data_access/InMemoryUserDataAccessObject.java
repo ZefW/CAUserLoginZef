@@ -17,8 +17,11 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
                                                      ChangePasswordUserDataAccessInterface {
 
     private final Map<String, User> users = new HashMap<>();
-
     private String currentUser;
+
+    public InMemoryUserDataAccessObject() {
+        currentUser = null;
+    }
 
     @Override
     public boolean existsByName(String identifier) {
@@ -37,12 +40,22 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
      */
     @Override
     public String getCurrentUser() {
-        return "Paul";
+        return currentUser;
     }
 
     @Override
     public User get(String username) {
         return users.get(username);
+    }
+
+    /**
+     * Returns the user with the given username.
+     *
+     * @param name the username to look up
+     */
+    @Override
+    public void setCurrentUser(String name) {
+        this.currentUser = name;
     }
 
     @Override

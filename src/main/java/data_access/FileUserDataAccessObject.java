@@ -87,6 +87,16 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
         this.save();
     }
 
+    /**
+     * Returns the user with the given username.
+     *
+     * @return the user with the given username
+     */
+    @Override
+    public String getCurrentUser() {
+        return "Paul";
+    }
+
     @Override
     public User get(String username) {
         return accounts.get(username);
